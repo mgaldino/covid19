@@ -16,7 +16,10 @@ n1 <- 4653 # amostra da vacina
 n2 <- 4559 # amostra do placebo
 s1 <- 0 # doentes graves no grupo da vacina
 s2 <- 7 # doentes graves no grupo do placebo
+
+# dados da minha simulação
 pop <- 200000000 # população do Brasil
+n_sim <- 10000
 
 # Como escolher a priori?
 # Vamos supor que a eficácia para casos graves, a priori, é de uns 50% aproximadamente.
@@ -54,10 +57,10 @@ summary(prior_atack_rate2)
 # priori da eficácia
 prior_eficacy <- (prior_atack_rate2 - prior_atack_rate1)/prior_atack_rate2
 
-summary(prior_eficacy) # eficácia 82% a priori (estimativa pontual a partir da mediana)
+summary(prior_eficacy) # eficácia 56% a priori (estimativa pontual a partir da mediana)
 
 # Intervalo de credibilidade pra eficácia de 90%
-quantile(prior_eficacy, c(.05, .95)) # 0.4197581 0.9529146 
+quantile(prior_eficacy, c(.05, .95)) # 0.2208321 0.8649758 
 
 # Probabilidade a priori da eficácia ser maior que 50%
 sum(prior_eficacy > .5)/length(prior_eficacy) # 86%
