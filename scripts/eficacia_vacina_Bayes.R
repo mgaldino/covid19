@@ -27,6 +27,7 @@ pop <- 200000000 # população do Brasil
 alpha1 <- 3
 beta1 <- 250
 prior1 <- rbeta(n_sim,alpha1, beta1) 
+
 #truncando em 1,5%
 prior1 <- ifelse(prior1 > .015, .015, prior1)
 summary(prior1)
@@ -106,8 +107,16 @@ ratio2 <- predic_distrib_2/pop
 # eficácia a posteriori
 eficacia_posteriori <- (ratio2 - ratio1)/ratio2
 summary(eficacia_posteriori)
+
+# Intervalo de credibilidade de 90% para eficácia
 quantile(eficacia_posteriori, c(.05, .95))
+
+# IC para eficácia a priori
 quantile(prior_eficacy, c(.05, .95))
+
+# Prob da eficácia ser > 50%
 sum(eficacia_posteriori > .5)/length(eficacia_posteriori)
+
+# Prob da eficácia ser maior que 80%
 sum(eficacia_posteriori > .8)/length(eficacia_posteriori)
-sum(prior_eficacy > .8)/length(prior_eficacy)
+
