@@ -63,7 +63,7 @@ summary(prior_eficacy) # eficácia 56% a priori (estimativa pontual a partir da 
 quantile(prior_eficacy, c(.05, .95)) # 0.2208321 0.8649758 
 
 # Probabilidade a priori da eficácia ser maior que 50%
-sum(prior_eficacy > .5)/length(prior_eficacy) # 86%
+sum(prior_eficacy > .5)/length(prior_eficacy) # 60%
 
 #Parece uma priori razoável para a eficácia
 # Relembrando ela deriva de ter prioris para p e q
